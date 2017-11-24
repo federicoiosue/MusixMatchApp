@@ -3,6 +3,7 @@ package android.feio.it.musixmatchapp;
 import android.content.Context;
 import android.content.Intent;
 import android.feio.it.musixmatchapp.models.DummyItem;
+import android.feio.it.musixmatchapp.services.ServicesHelper;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import android.feio.it.musixmatchapp.models.DummyContent;
+import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
 
 import java.util.List;
 
@@ -33,6 +36,8 @@ public class TrackListActivity extends AppCompatActivity {
 		setSupportActionBar(toolbar);
 		toolbar.setTitle(getTitle());
 
+		Object tracksResult = ServicesHelper.getTracks().subscribeOn(Schedulers.io()).blockingSingle();
+
 		FloatingActionButton fab = findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -49,6 +54,7 @@ public class TrackListActivity extends AppCompatActivity {
 		View recyclerView = findViewById(R.id.track_list);
 		assert recyclerView != null;
 		setupRecyclerView((RecyclerView) recyclerView);
+
 	}
 
 	private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
