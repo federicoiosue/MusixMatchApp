@@ -6,8 +6,6 @@
     android:name="android.feio.it.musixmatchapp.TrackListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="android.feio.it.musixmatchapp.TrackListActivity"
     tools:listitem="@layout/track_list_content" />
