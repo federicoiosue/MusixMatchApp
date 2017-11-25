@@ -2,7 +2,6 @@ package android.feio.it.musixmatchapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.feio.it.musixmatchapp.models.DummyItem;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,10 +20,10 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksVi
 	private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View view) {
-			DummyItem item = (DummyItem) view.getTag();
+			LinkedTreeMap track = (LinkedTreeMap) ((LinkedTreeMap) view.getTag()).get("track");
 			if (mTwoPane) {
 				Bundle arguments = new Bundle();
-				arguments.putString(TrackDetailFragment.ARG_ITEM_ID, item.id);
+				arguments.putSerializable(TrackDetailFragment.TRACK, track);
 				TrackDetailFragment fragment = new TrackDetailFragment();
 				fragment.setArguments(arguments);
 				mParentActivity.getSupportFragmentManager().beginTransaction()
@@ -33,8 +32,7 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksVi
 			} else {
 				Context context = view.getContext();
 				Intent intent = new Intent(context, TrackDetailActivity.class);
-				intent.putExtra(TrackDetailFragment.ARG_ITEM_ID, item.id);
-
+				intent.putExtra(TrackDetailFragment.TRACK, track);
 				context.startActivity(intent);
 			}
 		}

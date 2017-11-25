@@ -2,10 +2,7 @@ package android.feio.it.musixmatchapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
@@ -27,8 +24,8 @@ public class TrackDetailActivity extends AppCompatActivity {
 
 		if (savedInstanceState == null) {
 			Bundle arguments = new Bundle();
-			arguments.putString(TrackDetailFragment.ARG_ITEM_ID,
-					getIntent().getStringExtra(TrackDetailFragment.ARG_ITEM_ID));
+			arguments.putSerializable(TrackDetailFragment.TRACK,
+					getIntent().getExtras().getSerializable("track"));
 			TrackDetailFragment fragment = new TrackDetailFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()

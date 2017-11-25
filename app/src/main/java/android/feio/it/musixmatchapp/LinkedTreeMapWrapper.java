@@ -1,14 +1,8 @@
 package android.feio.it.musixmatchapp;
 
-import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.functions.Function;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.TreeMap;
 
 
 public class LinkedTreeMapWrapper {

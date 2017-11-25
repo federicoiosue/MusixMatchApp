@@ -1,6 +1,5 @@
 package android.feio.it.musixmatchapp;
 
-import android.feio.it.musixmatchapp.models.DummyContent;
 import android.feio.it.musixmatchapp.services.ServicesHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
