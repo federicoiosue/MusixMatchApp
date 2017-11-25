@@ -20,23 +20,12 @@ public class TrackDetailActivity extends AppCompatActivity {
 		Toolbar toolbar = findViewById(R.id.detail_toolbar);
 		setSupportActionBar(toolbar);
 
-		FloatingActionButton fab = findViewById(R.id.fab);
-		fab.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
-			}
-		});
-
 		ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
 			actionBar.setDisplayHomeAsUpEnabled(true);
 		}
 
 		if (savedInstanceState == null) {
-			// Create the detail fragment and add it to the activity
-			// using a fragment transaction.
 			Bundle arguments = new Bundle();
 			arguments.putString(TrackDetailFragment.ARG_ITEM_ID,
 					getIntent().getStringExtra(TrackDetailFragment.ARG_ITEM_ID));
