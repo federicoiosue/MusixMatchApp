@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksViewHolder> {
 
 	private final TrackListActivity mParentActivity;
-	private final List<DummyItem> mValues;
+	private final List<LinkedTreeMap> mValues;
 	private final boolean mTwoPane;
 	private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
 		@Override
@@ -40,7 +41,7 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksVi
 	};
 
 	SimpleItemRecyclerViewAdapter(TrackListActivity parent,
-								  List<DummyItem> items,
+								  List<LinkedTreeMap> items,
 								  boolean twoPane) {
 		mValues = items;
 		mParentActivity = parent;
@@ -56,8 +57,8 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksVi
 
 	@Override
 	public void onBindViewHolder(TracksViewHolder holder, int position) {
-		holder.mIdView.setText(mValues.get(position).id);
-		holder.mContentView.setText(mValues.get(position).content);
+		holder.mIdView.setText(getTrackName(mValues.get(position)));
+//		holder.mContentView.setText(mValues.get(position).toString());
 
 		holder.itemView.setTag(mValues.get(position));
 		holder.itemView.setOnClickListener(mOnClickListener);
@@ -66,6 +67,10 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksVi
 	@Override
 	public int getItemCount() {
 		return mValues.size();
+	}
+
+	private String getTrackName(LinkedTreeMap item) {
+		return ((LinkedTreeMap) item.get("track")).get("track_name").toString();
 	}
 
 }

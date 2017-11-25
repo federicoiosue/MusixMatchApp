@@ -1,6 +1,7 @@
 package android.feio.it.musixmatchapp.services;
 
 import android.feio.it.musixmatchapp.BuildConfig;
+import com.google.gson.internal.LinkedTreeMap;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import io.reactivex.Flowable;
 import retrofit2.Retrofit;
@@ -11,7 +12,7 @@ public class ServicesHelper {
 
 	private static final String TAG = ServicesHelper.class.getSimpleName();
 
-	public static Flowable<Object> getTracks() {
+	public static Flowable<LinkedTreeMap> getTracks() {
 		return getServices().getTracksChart("it");
 	}
 
