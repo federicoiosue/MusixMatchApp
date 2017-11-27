@@ -6,5 +6,5 @@
           android:layout_height="match_parent"
           android:padding="@dimen/text_margin"
           android:textIsSelectable="true"
-          android:fontFamily="  serif"
+          android:fontFamily="serif"
           tools:context="android.feio.it.musixmatchapp.views.TrackDetailFragment"/>

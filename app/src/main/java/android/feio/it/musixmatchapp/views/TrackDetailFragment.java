@@ -1,26 +1,22 @@
 package android.feio.it.musixmatchapp.views;
 
-import android.app.Service;
 import android.feio.it.musixmatchapp.GlideApp;
 import android.feio.it.musixmatchapp.R;
 import android.feio.it.musixmatchapp.models.LinkedTreeMapWrapper;
 import android.feio.it.musixmatchapp.services.ServicesHelper;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.SubtitleCollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.google.gson.internal.LinkedTreeMap;
 import io.reactivex.schedulers.Schedulers;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.List;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
@@ -39,9 +35,11 @@ public class TrackDetailFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		if (getArguments().containsKey(TRACK)) {
 			track = (HashMap) getArguments().getSerializable(TRACK);
-			CollapsingToolbarLayout appBarLayout = getActivity().findViewById(R.id.toolbar_layout);
+			SubtitleCollapsingToolbarLayout appBarLayout = getActivity().findViewById(R.id.toolbar_layout);
 			if (appBarLayout != null) {
 				appBarLayout.setTitle(track.get("track_name").toString());
+				appBarLayout.setSubtitle(track.get("artist_name").toString());
+				appBarLayout.setContentScrimColor(R.color.colorPrimary);
 				ImageView detailCoverView = getActivity().findViewById(R.id.detail_cover);
 				GlideApp.with(getActivity())
 						.load(track.get("album_coverart_350x350"))
