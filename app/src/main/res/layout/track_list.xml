@@ -7,5 +7,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"
-    tools:context="android.feio.it.musixmatchapp.TrackListActivity"
+    tools:context="android.feio.it.musixmatchapp.views.TrackListActivity"
     tools:listitem="@layout/track_list_content" />

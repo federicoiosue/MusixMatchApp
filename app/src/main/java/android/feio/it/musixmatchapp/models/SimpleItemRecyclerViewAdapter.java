@@ -1,16 +1,22 @@
-package android.feio.it.musixmatchapp;
+package android.feio.it.musixmatchapp.models;
 
 import android.content.Intent;
+import android.feio.it.musixmatchapp.GlideApp;
+import android.feio.it.musixmatchapp.R;
+import android.feio.it.musixmatchapp.views.TrackDetailActivity;
+import android.feio.it.musixmatchapp.views.TrackDetailFragment;
+import android.feio.it.musixmatchapp.views.TrackListActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
 import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.List;
+
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 
 public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksViewHolder> {
@@ -39,9 +45,9 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksVi
         }
     };
 
-    SimpleItemRecyclerViewAdapter(TrackListActivity parent,
-                                  List<LinkedTreeMap> items,
-                                  boolean twoPane) {
+    public SimpleItemRecyclerViewAdapter(TrackListActivity parent,
+                                         List<LinkedTreeMap> items,
+                                         boolean twoPane) {
         mValues = items;
         mParentActivity = parent;
         mTwoPane = twoPane;
@@ -58,7 +64,11 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksVi
     public void onBindViewHolder(TracksViewHolder holder, int position) {
         LinkedTreeMap track = mValues.get(position);
 
-        Glide.with(mParentActivity).load(getTrackAlbumCover(track)).into(holder.trackAlbumCover);
+        GlideApp.with(mParentActivity)
+                .load(getTrackAlbumCover(track))
+                .placeholder(R.drawable.music_note)
+                .transition(withCrossFade())
+                .into(holder.trackAlbumCover);
         holder.trackTitle.setText(getTrackName(track));
         holder.trackArtist.setText(getTrackArtist(track));
 
