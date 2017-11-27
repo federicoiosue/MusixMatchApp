@@ -27,9 +27,6 @@ public class TrackDetailFragment extends Fragment {
 
 	private HashMap track;
 
-	public TrackDetailFragment() {
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,8 +55,13 @@ public class TrackDetailFragment extends Fragment {
 			String trackId = new BigDecimal(track.get("track_id").toString()).toString();
 			LinkedTreeMap lyricsMap = ServicesHelper.getTrackLyric(trackId).subscribeOn(Schedulers.io()).blockingSingle();
 			LinkedTreeMap lyrics = new LinkedTreeMapWrapper(lyricsMap).getTrackLyrics();
-			((TextView) rootView.findViewById(R.id.track_detail)).setText(lyrics.get("lyrics_body").toString());
+			((TextView) rootView.findViewById(R.id.track_detail)).setText(getLyricsBody(lyrics));
 		}
 		return rootView;
+	}
+
+	private String getLyricsBody(LinkedTreeMap lyrics) {
+		String lyricsBody = lyrics.get("lyrics_body").toString();
+		return lyricsBody.substring(0, lyricsBody.indexOf("...\n\n*******"));
 	}
 }

@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 
 public interface ServicesInterface {
 
-	@GET("chart.tracks.get?f_has_lyrics=1&apikey=" + BuildConfig.API_KEY)
+	@GET("chart.tracks.get?f_has_lyrics=1&page_size=50&apikey=" + BuildConfig.API_KEY)
 	Flowable<LinkedTreeMap> getTracksChart(@Query("country") String country);
 
 	@GET("track.lyrics.get?apikey=" + BuildConfig.API_KEY)
