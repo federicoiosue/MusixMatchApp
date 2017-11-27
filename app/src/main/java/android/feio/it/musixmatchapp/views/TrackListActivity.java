@@ -1,5 +1,8 @@
-package android.feio.it.musixmatchapp;
+package android.feio.it.musixmatchapp.views;
 
+import android.feio.it.musixmatchapp.R;
+import android.feio.it.musixmatchapp.models.LinkedTreeMapWrapper;
+import android.feio.it.musixmatchapp.models.SimpleItemRecyclerViewAdapter;
 import android.feio.it.musixmatchapp.services.ServicesHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
