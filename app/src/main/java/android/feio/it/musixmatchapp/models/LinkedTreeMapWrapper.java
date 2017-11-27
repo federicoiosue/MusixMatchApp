@@ -17,6 +17,10 @@ public class LinkedTreeMapWrapper {
 		return (List) get("message.body").get("track_list");
 	}
 
+	public LinkedTreeMap getTrackLyrics() {
+		return (LinkedTreeMap) get("message.body").get("lyrics");
+	}
+
 	public LinkedTreeMap get(String mapPath) {
 		String[] mapPathElement = mapPath.split("\\.");
 		LinkedTreeMap map = linkedTreeMap;
