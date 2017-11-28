@@ -1,4 +1,4 @@
-package android.feio.it.musixmatchapp;
+package it.feio.android.musixmatchapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("android.feio.it.musixmatchapp", appContext.getPackageName());
+        assertEquals("it.feio.android.musixmatchapp", appContext.getPackageName());
     }
 }

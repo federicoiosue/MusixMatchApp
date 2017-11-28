@@ -1,4 +1,4 @@
-package android.feio.it.musixmatchapp.views;
+package it.feio.android.musixmatchapp.views;
 
 import android.app.Activity;
 import android.content.Intent;

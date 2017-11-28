@@ -1,4 +1,4 @@
-package android.feio.it.musixmatchapp;
+package it.feio.android.musixmatchapp;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;

@@ -1,7 +1,7 @@
-package android.feio.it.musixmatchapp.views;
+package it.feio.android.musixmatchapp.views;
 
 import android.content.Intent;
-import android.feio.it.musixmatchapp.R;
+import it.feio.android.musixmatchapp.R;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;

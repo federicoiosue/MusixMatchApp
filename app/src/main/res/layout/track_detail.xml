@@ -8,4 +8,4 @@
     android:gravity="center"
     android:padding="@dimen/text_margin"
     android:textIsSelectable="true"
-    tools:context="android.feio.it.musixmatchapp.views.TrackDetailFragment" />
+    tools:context="it.feio.android.musixmatchapp.views.TrackDetailFragment" />

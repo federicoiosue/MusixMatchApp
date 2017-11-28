@@ -1,11 +1,11 @@
-package android.feio.it.musixmatchapp.models;
+package it.feio.android.musixmatchapp.models;
 
 import android.content.Intent;
-import android.feio.it.musixmatchapp.GlideApp;
-import android.feio.it.musixmatchapp.R;
-import android.feio.it.musixmatchapp.views.TrackDetailActivity;
-import android.feio.it.musixmatchapp.views.TrackDetailFragment;
-import android.feio.it.musixmatchapp.views.TrackListActivity;
+import it.feio.android.musixmatchapp.GlideApp;
+import it.feio.android.musixmatchapp.R;
+import it.feio.android.musixmatchapp.views.TrackDetailActivity;
+import it.feio.android.musixmatchapp.views.TrackDetailFragment;
+import it.feio.android.musixmatchapp.views.TrackListActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

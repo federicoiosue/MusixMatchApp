@@ -1,4 +1,4 @@
-package android.feio.it.musixmatchapp;
+package it.feio.android.musixmatchapp;
 
 import org.junit.Test;
 

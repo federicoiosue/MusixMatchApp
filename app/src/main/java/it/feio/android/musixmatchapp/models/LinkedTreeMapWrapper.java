@@ -1,4 +1,4 @@
-package android.feio.it.musixmatchapp.models;
+package it.feio.android.musixmatchapp.models;
 
 import com.google.gson.internal.LinkedTreeMap;
 

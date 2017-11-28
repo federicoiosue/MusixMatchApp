@@ -1,6 +1,6 @@
-package android.feio.it.musixmatchapp.models;
+package it.feio.android.musixmatchapp.models;
 
-import android.feio.it.musixmatchapp.R;
+import it.feio.android.musixmatchapp.R;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;

@@ -1,6 +1,6 @@
-package android.feio.it.musixmatchapp.services;
+package it.feio.android.musixmatchapp.services;
 
-import android.feio.it.musixmatchapp.BuildConfig;
+import it.feio.android.musixmatchapp.BuildConfig;
 
 import com.google.gson.*;
 import com.google.gson.internal.LinkedTreeMap;
