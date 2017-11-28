@@ -1,8 +1,18 @@
 package it.feio.android.musixmatchapp;
 
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.module.AppGlideModule;
+import android.app.Application;
+import com.squareup.leakcanary.LeakCanary;
 
-@GlideModule
-public class MusixMatchApplication extends AppGlideModule {
+
+public class MusixMatchApplication extends Application {
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		if (LeakCanary.isInAnalyzerProcess(this)) {
+			return;
+		}
+		LeakCanary.install(this);
+	}
+
 }
