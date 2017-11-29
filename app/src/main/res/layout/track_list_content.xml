@@ -9,7 +9,8 @@
         android:id="@+id/track_album_cover"
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:contentDescription="@string/track_image" />
+        android:contentDescription="@string/track_image"
+        android:transitionName="@string/track_image"/>
 
     <LinearLayout
         android:layout_width="0dp"

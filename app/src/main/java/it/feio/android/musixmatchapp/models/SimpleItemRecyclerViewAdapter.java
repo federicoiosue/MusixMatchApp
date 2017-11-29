@@ -1,6 +1,8 @@
 package it.feio.android.musixmatchapp.models;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.widget.ImageView;
 import it.feio.android.musixmatchapp.GlideApp;
 import it.feio.android.musixmatchapp.R;
 import it.feio.android.musixmatchapp.views.TrackDetailActivity;
@@ -40,7 +42,10 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<TracksVi
             } else {
                 Intent intent = new Intent(mParentActivity.getApplicationContext(), TrackDetailActivity.class);
                 intent.putExtra(TrackDetailFragment.TRACK, track);
-                mParentActivity.getApplicationContext().startActivity(intent);
+                View androidRobotView = view.findViewById(R.id.track_album_cover);
+				ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(mParentActivity,
+						androidRobotView, mParentActivity.getString(R.string.track_image));
+				mParentActivity.startActivity(intent, options.toBundle());
             }
         }
     };
