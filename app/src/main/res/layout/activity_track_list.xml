@@ -28,6 +28,26 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <include layout="@layout/track_list" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/alert"
+                android:gravity="center"
+                android:text="@string/error"
+                android:textColor="@color/grayTtext"
+                android:textSize="20sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
     </FrameLayout>
 
 
