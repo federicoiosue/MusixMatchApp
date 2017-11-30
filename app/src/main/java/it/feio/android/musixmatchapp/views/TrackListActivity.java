@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -36,15 +39,40 @@ public class TrackListActivity extends AppCompatActivity {
             mTwoPane = true;
         }
 
+        loadTracksList();
+    }
+
+    private void loadTracksList() {
+        TextView errorView = findViewById(R.id.error);
+        RecyclerView recyclerView = findViewById(R.id.track_list);
         try {
             LinkedTreeMap tracksResult = ServicesHelper.getTracks().subscribeOn(Schedulers.io()).blockingSingle();
             List<LinkedTreeMap> tracks = new LinkedTreeMapWrapper(tracksResult).getTracks();
-            RecyclerView recyclerView = findViewById(R.id.track_list);
             recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, tracks, mTwoPane));
+            errorView.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
         } catch (Exception e) {
-            TextView errorView = findViewById(R.id.error);
             errorView.setText(getErrorMessage(e));
             errorView.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                loadTracksList();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 

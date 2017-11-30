@@ -4,4 +4,5 @@
     <string name="track_image">Track image</string>
     <string name="error">Error</string>
     <string name="missing_internet_connection">Internet connection not available</string>
+    <string name="action_refresh">Refresh</string>
 </resources>
