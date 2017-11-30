@@ -1,6 +1,9 @@
 package it.feio.android.musixmatchapp.views;
 
 import android.content.Intent;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import it.feio.android.musixmatchapp.R;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,11 +14,14 @@ import android.view.MenuItem;
 
 public class TrackDetailActivity extends AppCompatActivity {
 
+	@BindView(R.id.detail_toolbar)
+	Toolbar toolbar;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_track_detail);
-		Toolbar toolbar = findViewById(R.id.detail_toolbar);
+		ButterKnife.bind(this);
 		setSupportActionBar(toolbar);
 
 		ActionBar actionBar = getSupportActionBar();

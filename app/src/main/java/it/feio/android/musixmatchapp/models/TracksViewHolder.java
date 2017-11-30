@@ -1,22 +1,26 @@
 package it.feio.android.musixmatchapp.models;
 
-import it.feio.android.musixmatchapp.R;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import it.feio.android.musixmatchapp.R;
+
 
 public class TracksViewHolder extends RecyclerView.ViewHolder {
 
-    final ImageView trackAlbumCover;
-    final TextView trackTitle;
-    final TextView trackArtist;
+    @BindView(R.id.track_album_cover)
+    ImageView trackAlbumCover;
+    @BindView(R.id.track_name)
+    TextView trackTitle;
+    @BindView(R.id.track_artist)
+    TextView trackArtist;
 
     TracksViewHolder(View view) {
         super(view);
-        trackAlbumCover = view.findViewById(R.id.track_album_cover);
-        trackTitle = view.findViewById(R.id.track_name);
-        trackArtist = view.findViewById(R.id.track_artist);
+        ButterKnife.bind(this, view);
     }
 }

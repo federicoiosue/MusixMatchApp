@@ -14,6 +14,8 @@ import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.schedulers.Schedulers;
 import it.feio.android.musixmatchapp.R;
 import it.feio.android.musixmatchapp.models.LinkedTreeMapWrapper;
@@ -26,12 +28,19 @@ public class TrackListActivity extends AppCompatActivity {
 
     private boolean mTwoPane;
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.error)
+    TextView errorView;
+    @BindView(R.id.track_list)
+    RecyclerView trackList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_list);
+        ButterKnife.bind(this);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
@@ -43,18 +52,16 @@ public class TrackListActivity extends AppCompatActivity {
     }
 
     private void loadTracksList() {
-        TextView errorView = findViewById(R.id.error);
-        RecyclerView recyclerView = findViewById(R.id.track_list);
         try {
             LinkedTreeMap tracksResult = ServicesHelper.getTracks().subscribeOn(Schedulers.io()).blockingSingle();
             List<LinkedTreeMap> tracks = new LinkedTreeMapWrapper(tracksResult).getTracks();
-            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, tracks, mTwoPane));
+            trackList.setAdapter(new SimpleItemRecyclerViewAdapter(this, tracks, mTwoPane));
             errorView.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE);
+            trackList.setVisibility(View.VISIBLE);
         } catch (Exception e) {
             errorView.setText(getErrorMessage(e));
             errorView.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.GONE);
+            trackList.setVisibility(View.GONE);
         }
     }
 
