@@ -4,6 +4,8 @@
     style="?android:attr/textAppearanceLarge"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:fontFamily="serif"
+    android:gravity="center"
+    android:padding="@dimen/text_margin"
     android:textIsSelectable="true"
-    tools:context="android.feio.it.musixmatchapp.TrackDetailFragment" />
+    tools:context="it.feio.android.musixmatchapp.views.TrackDetailFragment" />
